@@ -1,0 +1,54 @@
+What does the program do?
+- Store a scripture and reference.
+- Display the scripture(s) including reference
+- Clears a few words when the user doesn't quit the program
+- Hids random words when the program is not specifically exited
+
+What user inputs does it have?
+- Scripture and reference
+- "enter" or "quit" to continue or leave the program
+
+What outputs does it produce?
+
+How does the program end?
+
+Canidates for classes? Responsibilities for each class?
+Behaviors for each class (what the class should do?)
+What variables should each class store? Data types?
+Define constructors?
+
+Class Scripture
+- Behaviors
+Hide random words
+Render display of the text.
+- Variables
+List<Word> _words = list of all the words in the scripture
+Reference _reference = the reference
+- constructors
+Accepts both reference and text of the scripture
+Splits the text of the scripture into the List<Word>
+
+Class reference
+- Behaviors
+Get the display text from the reference
+- Variables
+string _book
+int _chapter
+int _verse
+int_endVerse
+- constructors
+Two constructors for one or multiple verses
+> One takes one verse
+> One takes start and end verse
+
+Class Word
+- Behaviors
+hide and show a word
+check if a word is hidden
+if word is hidden, displays __ same length as word
+- Variables
+string _word
+boolean _shown = a true/false variable for if a word is shown or not
+- constructors
+Accepts text of the word and save it as an attribute
+sets the original visablility
