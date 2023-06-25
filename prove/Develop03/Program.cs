@@ -17,16 +17,15 @@ class Program
 
             Console.WriteLine("Press enter to continue or type 'quit' to finish: ");
             userInput = Console.ReadLine();
+            
+            Console.Clear();
 
             if (scripture.CompletelyHidden() == true)
             {
-                break;
+                userInput = "quit";
             }
-            else
-            {
-                scripture.HideRandomWords(3);
-            }
+            scripture.HideRandomWords(3);
+            
         }
-        
     }
 }

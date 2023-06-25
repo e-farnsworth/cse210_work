@@ -56,7 +56,7 @@ public class Scripture
 
     public bool CompletelyHidden()
     {
-        int count = 0;
+        int count = 1;
         foreach (Word _word in _words)
         {
             if (_word.IsHidden() == true)
@@ -65,14 +65,12 @@ public class Scripture
             }
         }
 
-        if (count == _words.Count)
+        if (count > _words.Count)
         {
-            Console.WriteLine($"{count}:{_words.Count}");
             return true;
         }
         else
         {
-            Console.WriteLine($"{count}:{_words.Count}");
             return false;
         }
 
