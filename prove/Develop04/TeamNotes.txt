@@ -1,0 +1,67 @@
+What does the program do?
+- Gives the user different mindflness oprotunities 
+> (gives guidence and structure to three different activities)
+
+What user inputs does it have?
+- menu selection for the type of activitiy
+
+What outputs does it produce?
+- three different activities
+- time breaks durring activities
+- 
+
+How does the program end?
+- user inputs quit/end
+
+Canidates for classes? Responsibilities for each class?
+Behaviors for each class (what the class should do?)
+What variables should each class store? Data types?
+Define constructors?
+
+Parent class Activity
+- Responsibilities
+durration of Activity
+
+- Behaviors
+sets and keeps track of the durration of the Activity
+Displays the activity and the discription
+
+
+- Variables and types
+string _activity
+string _discription
+int _duration
+
+- Constructors
+
+
+
+Inherited class BreathingActivity
+- Responsibilities
+
+- Behaviors
+
+- Variables and types
+
+- Constructors
+
+
+Inherited class ReflectionActivity
+- Responsibilities
+
+- Behaviors
+
+- Variables and types
+
+- Constructors
+
+
+Inherited class ListeningActivity
+- Responsibilities
+
+- Behaviors
+
+- Variables and types
+
+- Constructors
+
