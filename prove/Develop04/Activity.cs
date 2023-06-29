@@ -2,33 +2,31 @@ public class Activity
 {
     protected string _activity;
     protected string _description;
-    private int _durration;
+    protected int _durration;
 
-    public Activity(string activity, string description,int durration)
+    public Activity(string activity, string description)
     {
         _activity = activity;
         _description = description;
-        _durration = durration;
     }
 
     public void StartMessage()
     {
         Console.WriteLine($"Welcome to the {_activity} Activity");
         Console.WriteLine("");
-        Console.WriteLine($"This activity will help you {_description}.");
+        Console.WriteLine($"{_description}.");
         Console.WriteLine("");
-        Console.WriteLine("How long, in seconds, would you like for your session? ");
+        Console.Write("How long, in seconds, would you like for your session? ");
         string durrationInput = Console.ReadLine();
         _durration = int.Parse(durrationInput);
-        // Maybe return durration?
     }
 
     public void EndMessage()
     {
         Console.WriteLine("Well done!!");
-        ShowSpinner(10);
-        Console.WriteLine($"You have completed another {_durration} of the {_activity} Activity.");
-        ShowSpinner(10);
+        ShowSpinner(3);
+        Console.WriteLine($"You have completed another {_durration} seconds of the {_activity} Activity.");
+        ShowSpinner(3);
     }
 
     public void ShowSpinner(int secconds)
@@ -38,19 +36,19 @@ public class Activity
         for (int i = secconds; i > 0; i--)
         {
             Console.Write("-");
-            Thread.Sleep(300);
+            Thread.Sleep(250);
             Console.Write("\b \b"); //Erases the previous character
             
             Console.Write("\\");
-            Thread.Sleep(300);
+            Thread.Sleep(250);
             Console.Write("\b \b"); //Erases the previous character
 
             Console.Write("|");
-            Thread.Sleep(300);
+            Thread.Sleep(250);
             Console.Write("\b \b"); //Erases the previous character
             
             Console.Write("/");
-            Thread.Sleep(300);
+            Thread.Sleep(250);
             Console.Write("\b \b"); //Erases the previous character
         }
     }
@@ -65,5 +63,12 @@ public class Activity
             
         }
         // Shows a countdown timer for in secconds
+    }
+
+    public int RandomIndex(int listLength)
+    {
+        Random randomGenerator = new Random();
+        int randomIndex = randomGenerator.Next(1, listLength);
+        return randomIndex;
     }
 }

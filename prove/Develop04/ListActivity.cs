@@ -1,10 +1,11 @@
 public class ListActivity : Activity
 {
-    string _listPromt;
-    List<string> _userResponse = new List<string>();
-    public ListActivity(string activity, string description, int durration) : base(activity, description, durration)
+    private string _listPromt;
+    private List<string> _userResponse = new List<string>();
+    public ListActivity(string activity, string description) : base(activity, description)
     {
-        
+        _activity = "Listing";
+        _description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
     }
 
     public string ListPrompt()
@@ -28,5 +29,12 @@ public class ListActivity : Activity
         ShowCountdown(5);
 
         Console.WriteLine("");
+    }
+
+    public void RunListActivity()
+    {
+        StartMessage();
+        Console.WriteLine("RUN ACTIVITY HERE");
+        EndMessage();
     }
 }

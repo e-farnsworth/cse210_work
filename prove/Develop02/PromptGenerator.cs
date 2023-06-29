@@ -5,7 +5,7 @@ public class PromptGenerator
 
     public string _randomPrompt;
 
-    public void PopulatePrompts()
+    public PromptGenerator()
     {
         _prompts.Add("Who was the most interesting person I interacted with today?");
         _prompts.Add("What was the best part of my day?");
@@ -21,7 +21,6 @@ public class PromptGenerator
 
     public string RandomPrompt()
     {
-        PopulatePrompts();
         Random randomGenerator = new Random();
         int randomIndex = randomGenerator.Next(1, _prompts.Count);
         return _prompts[randomIndex - 1];

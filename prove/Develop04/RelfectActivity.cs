@@ -1,9 +1,10 @@
 public class ReflectActivity : Activity
 {
     
-    public ReflectActivity(string activity, string description, int durration) : base(activity, description, durration)
+    public ReflectActivity(string activity, string description) : base(activity, description)
     {
-        
+        _activity = "Reflection";
+        _description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
     }
 
     public string ReflectPrompt()
@@ -33,9 +34,14 @@ public class ReflectActivity : Activity
     public void DisplayQuestion()
     {
         Console.WriteLine("Now ponder on each of the folowing questions as they relate to this experiance.");
-        Console.WriteLine("You may begin in: ");
+        Console.Write("You may begin in: ");
         ShowCountdown(5);
+    }
 
-        
+    public void RunReflectActivity()
+    {
+        StartMessage();
+        Console.WriteLine("RUN ACTIVITY HERE");
+        EndMessage();
     }
 }
