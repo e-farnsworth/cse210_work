@@ -68,7 +68,8 @@ public class Activity
     public int RandomIndex(int listLength)
     {
         Random randomGenerator = new Random();
-        int randomIndex = randomGenerator.Next(1, listLength);
+        int randomIndex = randomGenerator.Next(1, listLength) - 1;
         return randomIndex;
     }
+    
 }

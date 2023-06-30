@@ -1,7 +1,7 @@
 public class ListActivity : Activity
 {
     private string _listPromt;
-    private List<string> _userResponse = new List<string>();
+    private List<string> _userResponses = new List<string>();
     public ListActivity(string activity, string description) : base(activity, description)
     {
         _activity = "Listing";
@@ -10,15 +10,20 @@ public class ListActivity : Activity
 
     public string ListPrompt()
     {
-        string randomPrompt = "PROMPT";
+        List<string> prompts = new List<string>
+        {
+            "Who are people that you appreciate?",
+            "What are personal strengths of yours?",
+            "Who are people that have you have helped this week?",
+            "When have you felt the Holy Ghost this month?",
+            "Who are some of your personal heros?"
+        };
+
+        int _index = RandomIndex(prompts.Count());
+
+        string randomPrompt = prompts[_index];
         // gets random reflection prompt
         return randomPrompt;
-    }
-
-    public void SetResponses(string listResponse)
-    {
-        _userResponse.Add(listResponse);
-        // Add responses to the list
     }
 
     public void DisplayPromptL()
@@ -27,14 +32,25 @@ public class ListActivity : Activity
         Console.WriteLine($" --- {ListPrompt()} --- ");
         Console.WriteLine("You may begin in: ");
         ShowCountdown(5);
-
-        Console.WriteLine("");
     }
 
     public void RunListActivity()
     {
         StartMessage();
-        Console.WriteLine("RUN ACTIVITY HERE");
+
+        DisplayPromptL();
+
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(_durration);
+        
+        DateTime currentTime = DateTime.Now;
+        if (currentTime < endTime)
+        {
+            Console.Write("> ");
+            _userResponses.Add(Console.ReadLine());
+        }
+        Console.WriteLine($"You entered {_userResponses.Count()} items.");
+
         EndMessage();
     }
 }

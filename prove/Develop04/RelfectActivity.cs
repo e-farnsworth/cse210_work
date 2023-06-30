@@ -1,5 +1,17 @@
 public class ReflectActivity : Activity
 {
+    private List<string> questions = new List<string>
+        {
+            "Why was this experiance meaningful to you?",
+            "Have you ever done anything like this before?",
+            "How did you get started?",
+            "How did you feel when it was complete?",
+            "What made this time different that other times when you were not as successful?",
+            "What is you favorite thing about this experiance?",
+            "What could you learn from this experiance that applies to other situations?",
+            "What did you learn about yourself through this experiance?",
+            "How can you keep this experiance in mind in the future?"
+        };
     
     public ReflectActivity(string activity, string description) : base(activity, description)
     {
@@ -9,14 +21,26 @@ public class ReflectActivity : Activity
 
     public string ReflectPrompt()
     {
-        string randomPrompt = "";
+        List<string> prompts = new List<string>
+        {
+            "Think of a time when you stood up for someone else.",
+            "Think of a time when you did something really difficult.",
+            "Think of a time when you helped someone in need.",
+            "Think of a time when you did something truely selfless."
+        };
+
+        int _index = RandomIndex(prompts.Count());
+
+        string randomPrompt = prompts[_index];
         // gets random reflection prompt
         return randomPrompt;
     }
 
     public string ReflectQuestion()
     {
-        string randomQuestion = "";
+        int _index = RandomIndex(questions.Count());
+
+        string randomQuestion = questions[_index];
         // gets random question about the prompt
         return randomQuestion;
     }
@@ -31,17 +55,23 @@ public class ReflectActivity : Activity
         Console.WriteLine("");
     }
 
-    public void DisplayQuestion()
-    {
-        Console.WriteLine("Now ponder on each of the folowing questions as they relate to this experiance.");
-        Console.Write("You may begin in: ");
-        ShowCountdown(5);
-    }
-
     public void RunReflectActivity()
     {
         StartMessage();
-        Console.WriteLine("RUN ACTIVITY HERE");
+        DisplayPromptR();
+        Console.WriteLine("Now ponder on each of the folowing questions as they relate to this experiance.");
+        Console.Write("You may begin in: ");
+        ShowCountdown(5);
+
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(_durration);
+        
+        DateTime currentTime = DateTime.Now;
+        if (currentTime < endTime)
+        {
+            ReflectQuestion();
+            ShowSpinner(3);
+        }
         EndMessage();
     }
 }

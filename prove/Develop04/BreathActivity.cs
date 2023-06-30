@@ -6,10 +6,27 @@ public class BreathActivity : Activity
         _description = "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.";
     }
 
+    public void DisplayBreathing()
+    {
+        Console.Write("Breath in ...");
+        ShowCountdown(5);
+        Console.WriteLine("");
+        Console.Write("Breath out ...");
+        ShowCountdown(5);
+    }
+
     public void RunBreathActivity()
     {
         StartMessage();
-        Console.WriteLine("RUN ACTIVITY HERE");
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(_durration);
+
+        DateTime currentTime = DateTime.Now;
+        if (currentTime < endTime)
+        {
+            DisplayBreathing();
+        }
+
         EndMessage();
     }
 }
