@@ -1,14 +1,44 @@
 public abstract class Goal
 {
-    private string _goal;
-    private int _points;
-    private int _pointsTotal;
+    protected string _goalName;
+    protected string _goalDescription;
+    protected int _points;
+    protected int _pointsTotal;
+    protected string _goalType;
 
-    public Goal(string goalDescription, int pointValue)
+    public Goal(string goalType, string goalName, string goalDescription, int pointValue)
     {
-        _goal = goalDescription;
+        _goalName = goalName;
+        _goalDescription = goalDescription;
         _points = pointValue;
+        _goalType = goalType;
+    }
+
+    public void SetPointTotal(int pointsTotal)
+    {
+        _pointsTotal = pointsTotal;
     }
 
     public abstract void RecordEvent();
+
+    public int GetTotalPoints()
+    {
+        return _pointsTotal;
+    }
+
+    public virtual string GetGoalNameAndDescription()
+    {
+        return $"{_goalType}||{_goalName}||{_goalDescription}";
+    }
+
+    public virtual string GetGoalPoints()
+    {
+        return $"{_points}";
+    }
+
+    public virtual string GetGoalStatus()
+    {
+        return "";
+    }
+    
 }
